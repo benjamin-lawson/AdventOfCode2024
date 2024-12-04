@@ -4,10 +4,12 @@
     {
         static void Main(string[] args)
         {
-            ISolution solution = new Day3.Solution();
-            string[] testData = File.ReadAllLines("Day3/testdata_part1.txt");
-            string[] testDataPart2 = File.ReadAllLines("Day3/testdata_part2.txt");
-            string[] inputData = File.ReadAllLines("Day3/input.txt");
+            ISolution solution = new Day4.Solution();
+            string day = "Day4";
+            string[] testData = File.ReadAllLines($"{day}/testdata.txt");
+            string[] testDataPart2 = File.ReadAllLines($"{day}/testdata.txt");
+            string[] inputData = File.ReadAllLines($"{day}/input.txt");
+            string[] inputDataPart2 = File.ReadAllLines($"{day}/input.txt");
 
             Console.WriteLine("===  Part 1  ===");
             Console.WriteLine("Test Solution");
@@ -21,7 +23,7 @@
             solution.SolvePart2(testDataPart2);
 
             Console.WriteLine("Real Solution");
-            solution.SolvePart2(inputData);
+            solution.SolvePart2(inputDataPart2);
             
         }
     }
