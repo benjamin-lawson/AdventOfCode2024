@@ -11,7 +11,7 @@ namespace AdventOfCode2024.Day6
     {
         public void SolvePart1(string[] inputData)
         {
-            int movedSpaces = SimulateGuardMovement(GenerateMap(inputData), out var hitTurnLimit);
+            int movedSpaces = SimulateGuardMovement(GenerateMap(inputData), out var hitTurnLimit, out var _);
             Console.WriteLine(movedSpaces);
         }
 
@@ -78,10 +78,10 @@ namespace AdventOfCode2024.Day6
             Console.WriteLine(sb.ToString());
         }
 
-        public int SimulateGuardMovement(char[][] map, out bool hitTurnLimit, bool printMap = false)
+        public int SimulateGuardMovement(char[][] map, out bool hitTurnLimit, out HashSet<Tuple<int, int>> visited, bool printMap = false)
         {
             int moveLimit = map.Length * map[0].Length;
-            HashSet<Tuple<int, int>> visited = new HashSet<Tuple<int, int>>();
+            visited = new HashSet<Tuple<int, int>>();
             var position = GetStartingGuardPosition(map);
             char character = '^';
             visited.Add(position);
@@ -114,18 +114,16 @@ namespace AdventOfCode2024.Day6
         {
 
             char[][] originalMap = GenerateMap(inputData);
+            SimulateGuardMovement(originalMap, out var _, out var visited);
             int totalObstaclePlacements = 0;
 
             var watch = System.Diagnostics.Stopwatch.StartNew();
-            for (int y = 0; y < inputData.Length; y++)
+            foreach (Tuple<int, int> newObstaclePosition in visited)
             {
-                for (int x = 0; x < inputData[y].Length; x++)
-                {
-                    char[][] newMap = originalMap.Select(l => l.Select(c => c).ToArray()).ToArray();
-                    newMap[y][x] = '#';
-                    SimulateGuardMovement(newMap, out var hitTurnLimit);
-                    if (hitTurnLimit) totalObstaclePlacements++;
-                }
+                char[][] newMap = originalMap.Select(l => l.Select(c => c).ToArray()).ToArray();
+                newMap[newObstaclePosition.Item2][newObstaclePosition.Item1] = '#';
+                SimulateGuardMovement(newMap, out var hitTurnLimit, out var _);
+                if (hitTurnLimit) totalObstaclePlacements++;
             }
             watch.Stop();
 
