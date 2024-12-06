@@ -6,3 +6,4 @@
 | 3       | ✅          | ✅          | ⭐           | [Day 3](https://github.com/benjamin-lawson/AdventOfCode2024/blob/master/AdventOfCode2024/Day3/Solution.cs) |
 | 4       | ✅          | ✅          | ⭐           | [Day 4](https://github.com/benjamin-lawson/AdventOfCode2024/blob/master/AdventOfCode2024/Day4/Solution.cs) |
 | 5       | ✅          | ✅          | ⭐⭐          | [Day 5](https://github.com/benjamin-lawson/AdventOfCode2024/blob/master/AdventOfCode2024/Day5/Solution.cs) |
+| 6       | ✅          | ✅          | ⭐⭐⭐         | [Day 6](https://github.com/benjamin-lawson/AdventOfCode2024/blob/master/AdventOfCode2024/Day6/Solution.cs) |

@@ -4,8 +4,8 @@
     {
         static void Main(string[] args)
         {
-            ISolution solution = new Day5.Solution();
-            string day = "Day5";
+            ISolution solution = new Day6.Solution();
+            string day = "Day6";
             string[] testData = File.ReadAllLines($"{day}/testdata.txt");
             string[] testDataPart2 = File.ReadAllLines($"{day}/testdata.txt");
             string[] inputData = File.ReadAllLines($"{day}/input.txt");
