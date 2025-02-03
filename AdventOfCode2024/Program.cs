@@ -4,8 +4,11 @@
     {
         static void Main(string[] args)
         {
-            ISolution solution = new Day6.Solution();
-            string day = "Day6";
+            ISolution solution = new Day15.Solution();
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
+            string day = solution.GetType().Namespace.Replace("AdventOfCode2024.", "");
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
+
             string[] testData = File.ReadAllLines($"{day}/testdata.txt");
             string[] testDataPart2 = File.ReadAllLines($"{day}/testdata.txt");
             string[] inputData = File.ReadAllLines($"{day}/input.txt");
